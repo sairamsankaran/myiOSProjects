@@ -58,7 +58,14 @@
 
 - (IBAction)onSlideDown:(id)sender {
     int currentTempInCelsius = [self.tempInCelsiusLabel.text intValue];
+    int currentTempInFahrenheit, currentTempInKelvin;
     currentTempInCelsius = currentTempInCelsius - 1;
+    currentTempInFahrenheit = (int)roundf(currentTempInCelsius*9/5) + 32;
+    currentTempInKelvin = currentTempInCelsius + 273;
+    
     [self.tempInCelsiusLabel setText:[NSString stringWithFormat:@"%d", currentTempInCelsius]];
+    [self.tempInFahrenheitLabel setText:[NSString stringWithFormat:@"%d", currentTempInFahrenheit]];
+    [self.tempInKelvinLabel setText:[NSString stringWithFormat:@"%d", currentTempInKelvin]];
+
 }
 @end
